@@ -1,0 +1,231 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\title{Brief Article}
+\bibliographystyle{unsrt}
+\author{The Author}
+%\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+%\section{}
+%\subsection{}
+
+\newcommand\vect[1]{\mathbf{#1}}
+
+\newcommand\sgn{\operatorname{sgn}}
+
+% To use roman text for left and right states
+\newcommand\stateL{\mathrm{L}}
+\newcommand\stateR{\mathrm{R}}
+
+\newcommand\sByL{{B_{y_\stateL}^{*}}}
+\newcommand\sByR{{B_{y_\stateR}^{*}}}
+
+\newcommand\sBzL{{B_{y_\stateL}^{*}}}
+\newcommand\sBzR{{B_{y_\stateR}^{*}}}
+
+\newcommand\rhoL{{\rho_\stateL}}
+\newcommand\rhoR{{\rho_\stateR}}
+\newcommand\srhoL{{\rho^{*}_\stateL}}
+\newcommand\srhoR{{\rho^{*}_\stateR}}
+\newcommand\srhoa{{\rho^{*}_\alpha}}
+\newcommand\ssrhoa{{\rho^{**}_\alpha}}
+
+\newcommand\pTL{{p_{T_\stateL}}}
+\newcommand\pTR{{p_{T_\stateR}}}
+
+\newcommand\spTL{{p^{*}_{T_\stateL}}}
+\newcommand\spTR{{p^{*}_{T_\stateR}}}
+\newcommand\spTa{{p^{*}_{T_\alpha}}}
+\newcommand\spT{{p^{*}_{T}}}
+
+\newcommand\sspTL{{p^{**}_{T_\stateL}}}
+\newcommand\sspTR{{p^{**}_{T_\stateR}}}
+\newcommand\sspTa{{p^{**}_{T_\alpha}}}
+
+\newcommand\uL{{u_\stateL}}
+\newcommand\uR{{u_\stateR}}
+
+\newcommand\vL{{v_\stateL}}
+\newcommand\vR{{v_\stateR}}
+
+\newcommand\wL{{w_\stateL}}
+\newcommand\wR{{w_\stateR}}
+
+\newcommand\svL{{v^{*}_\stateL}}
+\newcommand\svR{{v^{*}_\stateR}}
+
+\newcommand\swL{{w^{*}_\stateL}}
+\newcommand\swR{{w^{*}_\stateR}}
+
+\newcommand\ssvL{{v^{**}_\stateL}}
+\newcommand\ssvR{{v^{**}_\stateR}}
+\newcommand\ssv{{v^{**}}}
+
+\newcommand\sswL{{w^{**}_\stateL}}
+\newcommand\sswR{{w^{**}_\stateR}}
+\newcommand\ssw{{w^{**}}}
+
+\newcommand\ssByL{{B_{yL}^{**}}}
+\newcommand\ssByR{{B_{yR}^{**}}}
+\newcommand\ssBy{{B_y^{**}}}
+
+\newcommand\ssBzL{{B_{zL}^{**}}}
+\newcommand\ssBzR{{B_{zR}^{**}}}
+\newcommand\ssBz{{B_z^{**}}}
+
+\newcommand\sseL{{e^{**}_\stateL}}
+\newcommand\sseR{{e^{**}_\stateR}}
+
+\newcommand\seL{{e^{*}_\stateL}}
+\newcommand\seR{{e^{*}_\stateR}}
+\newcommand\sea{{e^{*}_\alpha}}
+
+
+\newcommand\den{\sqrt\srhoL+\sqrt\srhoR}
+
+\newcommand\SM{{S_M}}
+\newcommand\sSL{{S^{*}_\stateL}}
+\newcommand\sSR{{S^{*}_\stateR}}
+\newcommand\SmuL{{S_\stateL-u_\stateL}}
+\newcommand\SmuR{{S_\stateR-u_\stateR}}
+\newcommand\Smua{{S_\alpha-u_\alpha}}
+
+\newcommand\dena{\rho_\alpha(\Smua)(S_\alpha-\SM)-B_x^2}
+
+% Equations
+
+This note gives some equations from the paper introducing
+the HLLD method by
+Miyoshi and Kusano \cite{Miyoshi2005}.
+
+Ideal MHD eigenvalues
+$$\lambda_{2,6}=u\mp c_A,
+\;\;
+\lambda_{1,7}=u\mp c_f,
+\;\;
+\lambda_{3,5}=u\mp c_s,
+\;\;
+\lambda_4=u
+$$
+where the Alfv\'en speed $c_A$, fast wave speed $c_f$ and
+slow wave speed $c_s$ are given by
+$$
+c_A=\frac{|B_x|}{\sqrt{\rho}},
+\;\;
+c_{f,s}=\left[
+\frac{\gamma p + |\vect{B}|^2\pm
+\sqrt{\left(\gamma p + |\vect{B}|^2\right)^2-4\gamma p B_x^2}}{2\rho} 
+\right]^{1/2}
+$$
+
+HLLD approximation.
+Entropy wave speed
+% Miyoshi and Kusano, equation (38)
+\begin{equation}
+\SM=\frac
+{(\SmuR)\rhoR\uR-(\SmuL)\rhoL\uL-\pTR+\pTL}
+{(\SmuR)\rhoR-(\SmuL)\rhoL}
+\end{equation}
+
+
+We have $\spTL=\sspTL=\sspTR=\spTR=\spT$
+\begin{equation}
+\spT=\frac
+{(\SmuR)\rhoR\pTL-(\SmuL)\rhoL\pTR+\rhoL\rhoR(\SmuR)(\SmuL)(\uR-\uL)}
+{(\SmuR)\rhoR-(\SmuL)\rhoL}
+\end{equation}
+
+With $\alpha=L,R$,
+\begin{align}
+v^*_\alpha&= v_\alpha-B_xB_{y\alpha}\frac{\SM-u_\alpha}
+{\dena}
+\\
+B_{y\alpha}^{*}&=B_{y\alpha}\frac{\rho_\alpha(\Smua)^2-B_x^2}
+{\dena}
+\end{align}
+
+\begin{align}
+w^*_\alpha&= w_\alpha-B_xB_{z\alpha}\frac{\SM-u_\alpha}
+{\dena}
+\\
+B_{z\alpha}^{*}&=B_{z\alpha}\frac{\rho_\alpha(\Smua)^2-B_x^2}
+{\dena}
+\end{align}
+
+% Miyoshi and Kusano, equation (48)
+\begin{equation}
+\sea=\frac{(S_\alpha-u_\alpha)e_\alpha-p_{T\alpha}u_\alpha
++\spT\SM+B_x\left(
+\vect{v}_\alpha\cdot\vect{B}_\alpha-
+\vect{v}_\alpha^*\cdot\vect{B}_\alpha^*
+\right)}{S_\alpha-\SM}
+\end{equation}
+
+We have $\ssrhoa=\srhoa$ and $\sspTa=\spTa$.
+
+Propagation speed of Alfv\'en waves in the intemediate
+states:
+\begin{align}
+\sSL=\SM-\frac{|B_x|}{\sqrt\srhoL}
+\\
+\sSR=\SM+\frac{|B_x|}{\sqrt\srhoR}
+\end{align}
+
+Equalities:
+\begin{align}
+\ssvL&=\ssvR\equiv\ssv\\
+\sswL&=\sswR\equiv\ssw\\
+\ssByL&=\ssByR\equiv\ssBy\\
+\ssBzL&=\ssBzR\equiv\ssBz
+\end{align}
+
+% Miyoshi and Kusano, equations (59)-(62)
+\begin{align}
+\ssv&=\frac{\sqrt\srhoL\svL+\sqrt\srhoR\svR
++\left(\sByR-\sByL\right)\sgn(B_x)}{\den}
+\\
+\ssw&=\frac{\sqrt\srhoL\swL+\sqrt\srhoR\swR
++\left(\sBzR-\sBzL\right)\sgn(B_x)}{\den}
+\\
+\ssBy&=\frac{\sqrt\srhoL\sByR+\sqrt\srhoR\sByL
++\sqrt{\srhoL\srhoR}\left(\svR-\svL\right)\sgn(B_x)}{\den}
+\\
+\ssBz&=\frac{\sqrt\srhoL\sBzR+\sqrt\srhoR\sBzL
++\sqrt{\srhoL\srhoR}\left(\swR-\swL\right)\sgn(B_x)}{\den}
+\end{align}
+The jump condition for the energy
+\begin{align}
+\sseL&=\seL - \srhoL\left(\vect{v}_\stateL^{*}\cdot\vect{B}_\stateL^{*}
+                      -\vect{v}^{**}\cdot\vect{B}^{**}\right)
+\\
+\sseR&=\seR + \srhoR\left(\vect{v}_\stateR^{*}\cdot\vect{B}_\stateR^{*}
+                      -\vect{v}^{**}\cdot\vect{B}^{**}\right)
+\end{align}
+The fluxes found from the jump conditions...
+
+Signal speeds for the left and right sides of the Riemann fan
+are estimated as
+% Miyoshi and Kusano, equation (67)
+\begin{subequations}
+\begin{align}
+S_\stateL&=\min(u_\stateL,u_\stateR)-\max(c_{fL},c_{fR})
+\\
+S_\stateR&=\max(u_\stateL,u_\stateR)+\max(c_{fL},c_{fR})
+\end{align}
+\end{subequations}
+
+
+
+\bibliography{hlld-notes}
+
+\end{document}  
